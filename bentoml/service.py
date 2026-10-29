@@ -39,6 +39,5 @@ class BusiClassifier:
 
     @bentoml.api
     def model_info(self) -> dict:
-        """Return the BentoML model tag and the MLflow run it comes from."""
-        return {"bento_model": str(self.bento_model.tag),
-                **{k: str(v) for k, v in self.bento_model.info.metadata.items()}}
+        """Return the BentoML model tag, the MLflow run it comes from and its data lineage."""
+        return {"bento_model": str(self.bento_model.tag), **self.bento_model.info.metadata}
