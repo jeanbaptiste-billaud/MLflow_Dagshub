@@ -1,0 +1,5 @@
+# Runtime dependencies of the Bento (service + preprocessing).
+# Pin torch to the version used to export the pt2 model in the notebook.
+torch==2.11.0
+torchvision==0.26.0
+pillow

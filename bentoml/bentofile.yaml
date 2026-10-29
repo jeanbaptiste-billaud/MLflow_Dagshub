@@ -1,0 +1,16 @@
+service: "service:BusiClassifier"
+name: busi_classifier
+description: "BUSI breast ultrasound classifier (ResNet-18 fine-tuned, served from an MLflow pt2 model)"
+labels:
+  project: mlops_lecture
+  dataset: BUSI
+include:
+  - service.py
+  - preprocess.py
+python:
+  requirements_txt: ./requirements.txt
+  # CPU-only image (~1 GB lighter instead of pulling CUDA libraries):
+  # uncomment the two lines below and pin torch==2.11.0+cpu / torchvision==0.26.0+cpu
+  # in requirements.txt.
+  # extra_index_url:
+  #   - https://download.pytorch.org/whl/cpu
